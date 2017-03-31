@@ -1,0 +1,384 @@
+<html>
+
+<head>
+
+  <link rel="icon" href="favicon.ico" type="image/ico">
+
+  <title>Cosmology Calculator</title>
+
+<style>
+
+  body {
+    background: url(Background_Repeat.jpg) repeat-y;
+    font-family: Georgia;
+    color: white;
+  }
+   
+  .box {
+    margin: 20px 70px 20px 70px;
+    padding: 20px 70px 20px 70px;
+  }
+
+  .smaller-image {
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .circular-border {
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+  }
+ 
+  .formula-box {
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    background-color: grey;
+    color: black;
+    text-align: left;
+    margin: auto;
+    width: 50%;
+    padding: 20px 30px 20px 30px;
+  } 
+
+  .confine-clickable-area {
+    margin: auto;
+    width: 20%;
+  }
+
+  .align-centre {
+    text-align: center;
+  }
+
+  .centred-image {
+    width: 640px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+  <div class="box">
+  
+  <a id="top"><H1 align="center">Cosmology Calculator</H1></a>
+  
+  <div class="confine-clickable-area">
+  <a href="https://en.wikipedia.org/wiki/Observable_universe" target="_blank"
+  title="Observable Universe"><img src="Observable_universe.png" alt="Observable universe logarithmic illustration" 
+  class="smaller-image circular-border"></a></div>
+
+  <H2>Introduction</H2>
+  <p>This website contains four 'cosmological calculators' for working out the distance to an astronomical object, 
+     the peak wavelength of a star, the habitable zone of a star, and the recession velocity of a distant galaxy.</p>
+
+  <p>It is intended to serve as a brief introduction to some astronomical themes.</p>
+
+  <p>Links to some excellent resources on astronomy and cosmology can be found at the bottom of the page.</p>
+  
+  <h2>Contents</h2>
+    <p>
+      <ul>
+        <li><a href="#dist_mod">The Distance Modulus Equation</a></li>
+        <li><a href="#wien">Wien's Displacement Law</a></li>
+        <li><a href="#habitable">The Habitable Zone</a></li>
+        <li><a href="#redshift">Redshift & Recession Velocity</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </p>
+
+  <a id="dist_mod"><H2>Distance Modulus Equation</H2></a>
+
+  <figure>
+  <a href="http://www.spacetelescope.org/images/heic0516b/" target="_blank"
+  title="Sirius A & Sirius B">
+  <img src="sirius_a_sirius_b.png" alt="Sirius A and Sirius B" width="430" height="320"></a>
+  <figcaption><font size="1.5">Image credit: NASA, ESA and G. Bacon (STScI)</font></figcaption>
+  </figure>
+  
+  <p>The <a href="https://en.wikipedia.org/wiki/Distance_modulus" target="_blank">distance modulus</a> 
+     is one of the most commonly used equations in astronomy. Using the distance modulus, you can find out the
+     distance (in parsecs) to any star or astronomical object if you know its apparent and absolute
+     magnitudes.</p>
+
+  <p>(The <a href="https://en.wikipedia.org/wiki/Apparent_magnitude" target="_blank">apparent magnitude</a> (m) of a star 
+     is how bright it appears to an observer on Earth, and the 
+     <a href="https://en.wikipedia.org/wiki/Absolute_magnitude" target="_blank">absolute magnitude</a> is a measure 
+     of the star's <i>intrinsic</i> brightness, or luminosity).</p>
+
+  <p>Have a go on the calculator below, to find out the distances to 
+     <a href="https://en.wikipedia.org/wiki/Sirius" target="_blank">Sirius</a>, 
+     <a href="https://en.wikipedia.org/wiki/Alpha_Centauri" target="_blank">Alpha Centauri A</a>,  
+     and the <a href="https://en.wikipedia.org/wiki/Andromeda_Galaxy" target="_blank">Andromeda Galaxy</a>.
+     (You can also think of your own).</p>
+
+  <p>
+    <ul>
+      <li>Sirius: m = -1.47; M = 1.42</li>
+      <li>Alpha Centauri A: m = 0.01; M = 4.38</li>
+      <li>Andromeda: m = 3.44; M = -21</li>
+     </ul>
+   </p>
+
+  <p>To use the calculator, change your input value(s), and then <b><i>click anywhere inside the grey box</i></b>.</p>
+
+    <div class="formula-box">
+    <p>Apparent Magnitude (m): <input id="appMag" type="number" step=".01" onchange="computeDist()"></p>
+
+    <p>Absolute Magnitude (M): <input id="absMag" type="number" step=".01" onchange="computeDist()"></p>
+
+    <h3 id="distance"></h2>
+    </div>
+
+  <p></p>
+  <!-- I am using p to create a line break instead of br because it creates the spacing that I want -->
+
+  <div class="align-centre"><p><a href="#top">Back to top</a></p></div>
+
+  <a id="wien"><H2>Wien's Displacement Law</H2></a>
+
+  <figure>
+  <a href="https://www.nasa.gov/content/goddard/jewel-box-sun/#.WN41lme1vIU" target="_blank"
+  title="Jewel Box Sun">
+  <img src="jewel_box_sun.png" alt="Jewel Box Sun" width="470" height="260"></a>
+  <figcaption><font size="1.5">Image credit: NASA/SDO/Goddard/SVS</font></figcaption>
+  </figure> 
+
+  <p><a href ="https://en.wikipedia.org/wiki/Wien%27s_displacement_law" target="_blank">Wien's displacement law</a>
+     is a physical law that states that the peak wavelength of a radiating 
+     <a href="https://en.wikipedia.org/wiki/Black-body_radiation" target="_blank">black body</a> is inversely
+     proportional to its temperature.</p>
+  
+  <p>In astronomy, this law can be used to work out the peak wavelength of a radiating body like the Sun given its 
+     surface temperature (and vice versa).</p>
+  
+  <p>Use the calculator below to work out the peak wavelength of the light emitted by the following stars:</p>
+
+  <p>
+    <ul>
+      <li>The Sun: 5778 Kelvins</li>
+      <li>Sirius: 9940 Kelvins</li>
+      <li>Alpha Centauri A: 5790 Kelvins</li>
+      <li><a href="https://en.wikipedia.org/wiki/Gliese_581" target="_blank">Gliese 581</a>: 3480 Kelvins</li>
+      <li><a href="https://en.wikipedia.org/wiki/TRAPPIST-1" target="_blank">TRAPPIST-1</a>: 2550 Kelvins</li>
+      </ul>
+   </p>
+
+  <p>You can also try using the calculator to find out the peak wavelengths of some other objects:</p>
+
+  <p>
+    <ul>
+      <li>The human body: 310 Kelvins</li>
+      <li><a href="https://en.wikipedia.org/wiki/Cosmic_microwave_background" target="_blank">The cosmic microwave background</a>: 2.73 Kelvins</li>
+    </ul>
+  </p>
+
+    <div class="formula-box">
+    <p>Temperature (K): <input id="temp" type="number" step="0.01" onchange="computePeak()"></p>
+
+    <h3 id="peak"></h3>
+    </div>
+
+  <p></p>
+
+  <div class="centred-image"><img src="em_spectrum.png" alt="EM Spectrum" width="640" height="275"></div>
+
+  <p></p>
+  <div class="align-centre"><p><a href="#top">Back to top</a></p></div>
+
+
+  <a id="habitable"><H2>The Habitable Zone</H2></a>
+
+  <figure>
+  <a href="http://www.keckobservatory.org/recent/entry/one_in_five_stars_has_earth_sized_planet_in_habitable_zone" 
+  target="_blank" title="The Habitable Zone">
+  <img src="habitable_zone.png" alt="The habitable zone" width="500" height="330"></a>
+  <figcaption><font size="1.5">Image credit: Petigura/UC Berkeley, Howard/UH-Manoa, Marcy/UC Berkeley</font></figcaption>
+  </figure>
+
+  <p><a href="https://en.wikipedia.org/wiki/Circumstellar_habitable_zone" target="_blank">The habitable zone</a>, 
+     or circumstellar habitable zone, is the range distances around a star where a planet can have its orbit and be able
+     to sustain liquid water on its surface (and thus support life).</p>
+  
+  <p>The Earth is within this range of orbits in our solar system (towards the outer edge), at a distance of about 150 
+     million km from the Sun. This distance is defined as 1 AU (1 astronomical unit).</p>
+  
+  <p>The habitable zone of any solar system is determined by the 
+     <a href="https://en.wikipedia.org/wiki/Luminosity" target="_blank">luminosity</a> of its star, (though the native 
+     atmosphere of a planet is also a factor, which is ignored by this equation).</p>
+
+  <p>The calculator below will show you the average orbital radius (in AU) of the habitable zone for any star that 
+     you input. Try using it with the following data for stars that have been found to have planets orbiting them inside 
+     the habitable zone:</p>
+
+  <p>
+    <ul>
+      <li><a href="https://en.wikipedia.org/wiki/Gliese_581" target="_blank">Gliese 581</a>: Luminosity = 0.013</li>
+      <li><a href="https://en.wikipedia.org/wiki/TRAPPIST-1" target="_blank">TRAPPIST-1</a>: Luminosity = 0.000525</li>
+    </ul>
+  </p>
+
+     <div class="formula-box">
+       <p>Luminosity (Bolometric): <input id="lum" type="number" step="0.000001" onchange="computeZone()"></p>
+
+       <h3 id="zone"></h3>
+     </div>
+    
+  <p></p>
+  <div class="align-centre"<p><a href="#top">Back to top</a></p></div>
+
+  <a id="redshift"><H2>Redshift & Recession Velocity</H2></a>
+
+  <figure>
+  <a href="http://skyserver.sdss.org/dr1/en/proj/basic/universe/redshifts.asp" 
+  target="_blank" title="Redshift & Blueshift">
+  <img src="blueshift_redshift.png" alt="Redshifted and Blueshifted EM spectrum" width="410" height="275"></a>
+  <figcaption><font size="1.5">Image credit: Carolyn Collins Petersen</font></figcaption>
+  </figure>
+
+  <p>All stars emit electromagnetic radiation. Astronomers can analyse their electromagnetic spectra, and use that data 
+     to determine whether a star (or galaxy of stars) is moving away from us, or towards us.</p>
+  
+  <p>Stars that are moving away from us show spectral lines that are shifted towards the red part of the spectrum (in
+     comparsion to their reference wavelengths) - we say that they are 
+     <a href="https://en.wikipedia.org/wiki/Redshift" target="_blank">'redshifted'</a> - 
+     and stars that are moving towards us have spectral lines that are shifted
+     towards the blue, or 'blueshifted'.
+     
+  <p>Distant galaxies and quasars are given a 'z' number, and this z number represents their redshift (or blueshift).
+     Positive z numbers indicate an object whose light has been redshifted, and negative z numbers indicate an object
+     whose radiation has been blueshifted.</p>
+
+  <p>A positive z number (redshift) means that an object is moving away from us, and a negative z number (blueshift)
+     means that it is approaching.</p>
+
+  <p>The following calculator can take the redshift of an object (for z < 1), and determine the speed with which it is 
+     approaching (shown as a negative velocity) or receding (shown as a positive velocity).</p>
+
+  <p>Try it with the data given below:</p>
+
+  <p>
+    <ul>
+      <li>Andromeda Galaxy: z = -0.001001</li>
+      <li>The <a href="https://en.wikipedia.org/wiki/Whirlpool_Galaxy" target="_blank">Whirlpool Galaxy</a>: z = 0.00155</li>
+      <li><a href="https://en.wikipedia.org/wiki/3C_273" target="_blank">Quasar 3C 273</a>: z = 0.158</li>
+    </ul>
+  </p>
+
+     <div class="formula-box">
+        <p>Redshift (z): <input id="z" type="number" min="-100" max="100" step="0.000001" onchange="computeRedshift()"></p>
+
+        <h3 id="velocity"></h3>
+     </div>
+  
+  <p></p>
+  <div class="align-centre"><p><a href="#top">Back to top</a></p></div>
+  <p></p>
+  
+
+  <a id="resources"><H1 align="center">Resources</H1></a>
+  
+  <h2>PBS Space Time</h2>
+  <p>PBS Space Time is an excellent YouTube channel that discusses many advanced cosmological concepts, including
+     special and general relativity. It is highly recommended for anybody with an interest in understanding the nature
+     of the universe at a fairly high, yet accessible level.</p>
+
+  <p>A good place to start is with their cosmology playlist, shown below:</p>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/QXfhGxZFcVE?list=PLsPUh22kYmNAKCiGWtQ48yQVp7s-k0Os2" 
+   frameborder="0" allowfullscreen></iframe>
+  
+  <p></p>
+
+  <h2>Science & Futurism with Isaac Arthur</h2>
+  <p>Isaac Arthur's YouTube channel is another great place to learn about cosmology and physics, and it also covers
+     many other areas of science and futuristic technology.</p>
+
+  <p>The following playlist contains videos on 
+     <a href="https://en.wikipedia.org/wiki/Dark_matter" target="_blank">dark matter</a>, 
+     <a href="https://en.wikipedia.org/wiki/Dark_energy" target="_blank">dark energy</a>, and 
+     <a href="https://en.wikipedia.org/wiki/Dark_flow" target="_blank">dark flow</a>:</p>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/IhG1kHbRppY?list=PLIIOUpOge0LvLIXNMDKHf30gfyfnyX-4O" 
+  frameborder="0" allowfullscreen></iframe>
+  
+  <p></p>
+
+  <h2>Astronomy & Cosmology Lectures by Michel van Biezen</h2>
+  <p>For videos covering astronomy and cosmology (the Big Bang) to a 1st/2nd year undergraduate level, the lectures by
+     Michel van Biezen are an excellent resource:</p>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/x42fbMT9h8c?list=PLX2gX-ftPVXWmCvpAdPuf88_XxI8fhuSb" 
+  frameborder="0" allowfullscreen></iframe>
+
+  <p></p>
+
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/645Mfm4t1-I?list=PLX2gX-ftPVXWddG6sGq6H-3cN0IQzfQmG" 
+  frameborder="0" allowfullscreen></iframe>
+
+  <p></p>
+
+  <h2>Physics Videos by Eugene Khutoryansky</h2>
+  <p>Finally, the physics videos by Eugene Khutoryansky cover special and general relativity, in addition to other 
+     cosmological concepts. Besides these, this YouTube channel also delves into other interesting areas of physics, like
+     quantum mechanics. His videos on quantum entanglement are particularly notable.</p>
+  
+  <p>The video below discusses the possible shape and size of the universe:</p>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/IFdfrtzo4SY?list=PLkyBCj4JhHt_pz8HUG7rbMeKFsStae10k" 
+  frameborder="0" allowfullscreen></iframe>
+
+  <p></p>
+  <div class="align-centre"><p><a href="#top">Back to top</a></p></div>
+   
+  </div>
+
+<script>
+
+  function computeDist() {
+    var appMag = document.getElementById('appMag').value;
+    var absMag = document.getElementById('absMag').value;
+
+    var distance = Math.pow(10, ((appMag - absMag + 5) / 5)).toFixed(2);
+    document.getElementById('distance').innerHTML = "Distance = " + distance + " Parsecs";
+    
+  }
+
+  function computePeak() {
+    var temp = document.getElementById('temp').value;
+    var b = 2897.729;
+
+    var peak = (b / temp).toFixed(5);
+    document.getElementById('peak').innerHTML = "Peak Wavelength = " + peak + " Microns";
+
+  }
+
+  function computeZone() {
+    var lum = document.getElementById('lum').value;
+    
+    var zone = Math.sqrt(lum).toFixed(2);
+    document.getElementById('zone').innerHTML = "Radius = " + zone + " AU"; 
+  
+  }
+
+  function computeRedshift() {
+    var z = document.getElementById('z').value;
+
+    var velocity = (z * 299792.458).toFixed(2);
+    document.getElementById('velocity').innerHTML = "Recession velocity = " + velocity + " km/sec";
+  }
+
+</script>
+
+</body>
+
+</html>
+
